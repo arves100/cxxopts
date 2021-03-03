@@ -54,6 +54,10 @@ if (CXXOPTS_ENABLE_WARNINGS)
     cxxopts_enable_warnings()
 endif()
 
+if (MSVC)
+    add_definitions(-D_CRT_SECURE_NO_WARNINGS)
+endif()
+
 add_library(cxxopts INTERFACE)
 add_library(cxxopts::cxxopts ALIAS cxxopts)
 add_subdirectory(include)
